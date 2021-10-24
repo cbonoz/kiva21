@@ -42,7 +42,7 @@ permissions and limitations under the License.
     Ad to Watchlist button and Remove from Watchlist button -->
     <string name="watchlist_1">Add to</string>
     <string name="watchlist_2">Remove from</string>
-    <string name="watchlist_3">Loan Queue</string> <!-- Watchlist -->
+    <string name="watchlist_3">Queue</string> <!-- Watchlist -->
 
     <string name="recommended_contents_header">Recommended Content</string>
 
@@ -59,7 +59,8 @@ permissions and limitations under the License.
     <!-- Used in recommendations. Should be no more than 15 characters. -->
     <string translatable="false" name="app_name_short">@string/app_name</string>
 
-    <string name="buy_0">Lend </string>
+    <string name="buy_0">Lend</string>
+<!--    <string name="now">Now</string>-->
     <string name="buy_1">$25.00</string>
     <string name="buy_2">$100.00</string>
     <string name="buy_3">$500.00</string>

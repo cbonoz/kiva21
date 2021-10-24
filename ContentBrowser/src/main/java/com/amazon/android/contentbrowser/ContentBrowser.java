@@ -1401,6 +1401,8 @@ public class ContentBrowser implements IContentBrowser, ICancellableLoad {
         contentActionList.addAll(mGlobalContentActionList);
 
         // Render lend buttons.
+//        Integer priceResourceId = PRICE_MAP.get(p.toString());
+        /*
         for (Integer p : PRICE_LIST) {
             Integer priceResourceId = PRICE_MAP.get(p.toString());
             contentActionList.add(createActionButton(CONTENT_ACTION_BUY,
@@ -1408,6 +1410,12 @@ public class ContentBrowser implements IContentBrowser, ICancellableLoad {
                     priceResourceId
             ));
         }
+        */
+
+        contentActionList.add(createActionButton(CONTENT_ACTION_BUY,
+                R.string.buy_0,
+                R.string.now
+        ));
 
         return contentActionList;
     }

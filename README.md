@@ -11,9 +11,14 @@ Built for the Kiva 2021 hackathon.
 
 <b>Note this project is currently for demo purposes and would require additional implementation to be production ready.</b>
 
-
-ntroduction
+## Introduction
 The TiVa Android TV application brings the innovative charitable lending of Kiva into your living room and allows instant lending right from your remote or mobile device. 
+
+## Running the app
+* Download and open <a href="https://developer.android.com/studio" target="_blank">Android Studio</a>.
+* Clone repo and open as android project.
+* Build gradle dependencies.
+* Run app on AndroidTV emulator or device (minSdk: 22).
 
 ## Objective
 With TiVa, our primary objective was to find ways to expand upon Kiva already a successful platform for allowing charitable lenders to change the lives of borrowers all over the world by utilizing 10ft platforms and cryptocurrencies to borrower visibility, borrower connections, fund distribution, loan impact, and lender engagement.
