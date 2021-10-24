@@ -51,4 +51,13 @@ Key value props:
 ### Useful links
 -->
 
+### Screenshots
+<h3>Netflix style app for discovering emerging charitable causes and businesses from your TV</h3>
+<img src="./img/home.png" width=800/>
+<h3>Discover businesses and watch informational content right from the app</h3>
+<img src="./img/org.png" width=800/>
+<img src="./img/video.png" width=800/>
+<h3>Initiate a loan from your mobile device using a compatible wallet.</h3>
+<img src="./img/home.png" width=800/>
+
 
