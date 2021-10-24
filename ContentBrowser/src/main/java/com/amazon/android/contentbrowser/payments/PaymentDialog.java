@@ -37,19 +37,15 @@ public class PaymentDialog {
                                               Content content,
                                               DialogInterface.OnClickListener onClickListener)
             throws Exception {
-        final double price;
-        String priceString = context.getString(PRICE_MAP.get(content.getPrice().toString()));
-        price = Double.parseDouble(priceString.substring(1)); // remove $.
 
         ViewGroup subView = (ViewGroup) context.getLayoutInflater().// inflater view
                 inflate(R.layout.pay_id_input_dialog, null, false);
 
         TextView purchaseText = subView.findViewById(R.id.pay_id_text);
-        purchaseText.setText(String.format(Locale.US, "Lending to: %s\nAmount: %s", content.getTitle(), priceString));
+        purchaseText.setText(String.format(Locale.US, "Lending to: %s", content.getTitle());
 
         TextView conversionText = subView.findViewById(R.id.conversion_text);
-        final String text = String.format(Locale.US, "Scan the QR code below to confirm your payment",
-                price, content.getPayIdUserName(), PAYTV_SERVER);
+        final String text = "Scan the QR code below to initiate the loan from a compatible mobile wallet. Your sender/wallet address will automatically be recorded as the lending address.";
         conversionText.setText(text);
 
         String finalBtcAddress = "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy";
