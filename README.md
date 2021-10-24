@@ -5,9 +5,11 @@
 TiVa
 ---
 
-TiVa is a crypto-powered application to connect lenders with individuals and businesses in need.
+TiVa is a crypto-powered application inspired by Kiva.org for giving microloans for individuals and businesses in need.
 
 Built for the Kiva 2021 hackathon.
+
+<b>Note this project is currently for demo purposes and would require additional implementation to be production ready.</b>
 
 Key value props:
 1. Discover charities and businesses to give support from your TV.
