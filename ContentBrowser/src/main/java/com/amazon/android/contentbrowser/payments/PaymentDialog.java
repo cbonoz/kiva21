@@ -42,7 +42,7 @@ public class PaymentDialog {
                 inflate(R.layout.pay_id_input_dialog, null, false);
 
         TextView purchaseText = subView.findViewById(R.id.pay_id_text);
-        purchaseText.setText(String.format(Locale.US, "Lending to: %s", content.getTitle());
+        purchaseText.setText(String.format(Locale.US, "Lending to: %s", content.getTitle()));
 
         TextView conversionText = subView.findViewById(R.id.conversion_text);
         final String text = "Scan the QR code below to initiate the loan from a compatible mobile wallet. Your sender/wallet address will automatically be recorded as the lending address.";
