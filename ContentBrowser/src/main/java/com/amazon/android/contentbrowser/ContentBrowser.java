@@ -1343,17 +1343,7 @@ public class ContentBrowser implements IContentBrowser, ICancellableLoad {
         if (isSubscriptionNotRequired && mOverrideAllContentsSubscriptionFlag) {
             isSubscriptionNotRequired = false;
         }
-
-        if (PRICE_MAP.containsKey(content.getId())) {
-            Integer priceResourceId = PRICE_MAP.get(content.getId());
-            if (priceResourceId != null) {
-                contentActionList.add(createActionButton(CONTENT_ACTION_BUY,
-                        R.string.buy_0,
-                        priceResourceId
-                ));
-                content.setPrice(priceResourceId);
-            }
-        } else if (mSubscribed || isSubscriptionNotRequired || mIAPDisabled) {
+        if (mSubscribed || isSubscriptionNotRequired || mIAPDisabled) {
 
             // Check if the content is meant for live watching. Live content requires only a
             // watch now button.
@@ -2002,17 +1992,17 @@ public class ContentBrowser implements IContentBrowser, ICancellableLoad {
 
                 // Start flow for collecting payid payment
                 final int priceRes;
-                 switch (actionId) {
-                     case CONTENT_ACTION_BUY_25:
-                         priceRes = 25;
-                         break;
-                     case CONTENT_ACTION_BUY_100:
-                         priceRes = 100;
-                         break;
-                     default:
-                         priceRes = 500;
-                         break;
-                 }
+                switch (actionId) {
+                    case CONTENT_ACTION_BUY_25:
+                        priceRes = 25;
+                        break;
+                    case CONTENT_ACTION_BUY_100:
+                        priceRes = 100;
+                        break;
+                    default:
+                        priceRes = 500;
+                        break;
+                }
                 content.setPrice(priceRes);
 
                 try {
