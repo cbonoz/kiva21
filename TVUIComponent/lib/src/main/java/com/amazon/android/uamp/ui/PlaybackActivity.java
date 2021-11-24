@@ -705,6 +705,13 @@ public class PlaybackActivity extends Activity implements
         }
     }
 
+    //    https://stackoverflow.com/questions/61220057/how-to-play-m3u8-with-exoplayer-the-screen-remains-black
+    private MediaSource buildMediaSource(DataSource.Factory dataSource, Uri uri) {
+//        MediaSource mediaSource = new HlsMediaSource.Factory(dataSource).createMediaSource(uri); // HLS playlist.
+        dataSource = new DefaultDataSourceFactory(this, USER_AGENT);
+        return new HlsMediaSource.Factory(dataSource).createMediaSource(uri);
+    }
+
     private void showProgress() {
 
         mProgressBar.setVisibility(View.VISIBLE);
@@ -732,13 +739,6 @@ public class PlaybackActivity extends Activity implements
         final Uri uri = Uri.parse(streamUrl);
 
         mPlayer.prepare(buildMediaSource(dataSource, uri), false, false);
-    }
-
-    //    https://stackoverflow.com/questions/61220057/how-to-play-m3u8-with-exoplayer-the-screen-remains-black
-    private MediaSource buildMediaSource(DataSource.Factory dataSource, Uri uri) {
-//        MediaSource mediaSource = new HlsMediaSource.Factory(dataSource).createMediaSource(uri); // HLS playlist.
-        dataSource = new DefaultDataSourceFactory(this, USER_AGENT);
-        return new HlsMediaSource.Factory(dataSource).createMediaSource(uri);
     }
 
 
