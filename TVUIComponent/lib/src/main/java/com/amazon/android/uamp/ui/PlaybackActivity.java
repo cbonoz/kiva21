@@ -209,7 +209,7 @@ public class PlaybackActivity extends Activity implements
      */
     private IAds mAdsImplementation;
 
-    private static final String TEMP_URL = "https://multiplatform-f.akamaihd.net/i/multi/will/bunny/big_buck_bunny_,640x360_400,640x360_700,640x360_1000,950x540_1500,.f4v.csmil/master.m3u8".replaceAll(" ","%20");
+    private static final String TEMP_URL = "https://multiplatform-f.akamaihd.net/i/multi/will/bunny/big_buck_bunny_,640x360_400,640x360_700,640x360_1000,950x540_1500,.f4v.csmil/master.m3u8".replaceAll(" ", "%20");
 //    private static final String TEMP_URL = "https://live1-slivertv.akamaized.net/hls/live/2015776/hls_streamer_us_west_0084/usrz4dpidhgz7nwn1fj_360p/chunklist.m3u8";
 //    private static final String TEMP_URL = "https://live3-slivertv.akamaized.net/hls/live/2016002/hls_streamer_us_east_0053/playlist.m3u8";
 //    private static final String TEMP_URL = "http://edge-vod-media.cdn01.net/encoded/0000169/0169313/video_1880k/T7J66Z106.mp4?source=firetv&channel_id=13454";
@@ -715,6 +715,8 @@ public class PlaybackActivity extends Activity implements
         mProgressBar.setVisibility(View.INVISIBLE);
     }
 
+    private static final String USER_AGENT = "exoplayer-kiva";
+
     private void playMedia() { // was mPlayer.play
 //        disableSSL();
         mPlayer.setPlayWhenReady(true);
@@ -723,21 +725,20 @@ public class PlaybackActivity extends Activity implements
         final String streamUrl = lastUrl != null ? lastUrl : mSelectedContent.getUrl();
 
         DataSource.Factory dataSource = new ThetaHlsDataSourceFactory(this,
-                Util.getUserAgent(this, "kiva"),
+                USER_AGENT,
                 new DefaultBandwidthMeter(),
                 new ThetaConfig(streamUrl, currentUserId),
                 null);
         final Uri uri = Uri.parse(streamUrl);
 
-        mPlayer.prepare(buildMediaSource(uri), false, false);
-
+        mPlayer.prepare(buildMediaSource(dataSource, uri), false, false);
     }
 
-//    https://stackoverflow.com/questions/61220057/how-to-play-m3u8-with-exoplayer-the-screen-remains-black
-    private MediaSource buildMediaSource(Uri uri) {
+    //    https://stackoverflow.com/questions/61220057/how-to-play-m3u8-with-exoplayer-the-screen-remains-black
+    private MediaSource buildMediaSource(DataSource.Factory dataSource, Uri uri) {
 //        MediaSource mediaSource = new HlsMediaSource.Factory(dataSource).createMediaSource(uri); // HLS playlist.
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, "exoplayer-codelab");
-        return new HlsMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
+        dataSource = new DefaultDataSourceFactory(this, USER_AGENT);
+        return new HlsMediaSource.Factory(dataSource).createMediaSource(uri);
     }
 
 
