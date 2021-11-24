@@ -712,8 +712,7 @@ public class PlaybackActivity extends Activity implements
     }
 
     private void showProgress() {
-        // Readd if buffering indicator
-//        mProgressBar.setVisibility(View.VISIBLE);
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     private void hideProgress() {
