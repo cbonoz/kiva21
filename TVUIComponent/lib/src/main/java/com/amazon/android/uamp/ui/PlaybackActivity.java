@@ -93,6 +93,7 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 
 import org.theta.deliverysdk.ThetaDelivery;
 import org.theta.deliverysdk.datasource.ThetaHlsDataSourceFactory;
@@ -185,7 +186,7 @@ public class PlaybackActivity extends Activity implements
     private boolean mResumeOnStart = false;
 
     private static final String currentUserId = "123"; // Replace with current user url
-    private String lastUrl = TEMP_URL;
+    private String lastUrl;
 
     enum AudioFocusState {
         Focused,
@@ -726,11 +727,17 @@ public class PlaybackActivity extends Activity implements
                 new DefaultBandwidthMeter(),
                 new ThetaConfig(streamUrl, currentUserId),
                 null);
-        Uri uri = Uri.parse(streamUrl);
+        final Uri uri = Uri.parse(streamUrl);
 
-        MediaSource mediaSource = new HlsMediaSource.Factory(dataSource).createMediaSource(uri); // HLS playlist.
-//        MediaSource mediaSource = new HlsMediaSource(uri, dataSource, new Handler(), null);
-        mPlayer.prepare(mediaSource, false, false);
+        mPlayer.prepare(buildMediaSource(uri), false, false);
+
+    }
+
+//    https://stackoverflow.com/questions/61220057/how-to-play-m3u8-with-exoplayer-the-screen-remains-black
+    private MediaSource buildMediaSource(Uri uri) {
+//        MediaSource mediaSource = new HlsMediaSource.Factory(dataSource).createMediaSource(uri); // HLS playlist.
+        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, "exoplayer-codelab");
+        return new HlsMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
     }
 
 

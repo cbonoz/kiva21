@@ -53,9 +53,8 @@ permissions and limitations under the License.
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
-    <!--        android:usesCleartextTraffic="true"-->
-    <application
-        >
+    <!-- android:usesCleartextTraffic="true"-->
+    <application>
         <meta-data
             android:name="sqip.SQUARE_APPLICATION_ID"
             android:value="sandbox-sq0idb-MvTPWsCbhv8x6j1H73nPAA"/>
