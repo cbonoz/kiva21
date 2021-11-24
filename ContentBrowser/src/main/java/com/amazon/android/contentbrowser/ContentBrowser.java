@@ -15,13 +15,11 @@
 package com.amazon.android.contentbrowser;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v17.leanback.widget.SparseArrayObjectAdapter;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.amazon.android.contentbrowser.database.helpers.RecentDatabaseHelper;
 import com.amazon.android.contentbrowser.database.helpers.WatchlistDatabaseHelper;
@@ -2006,7 +2004,7 @@ public class ContentBrowser implements IContentBrowser, ICancellableLoad {
                 content.setPrice(priceRes);
 
                 try {
-                    PaymentDialog.createPayIdInputDialog(activity, content,
+                    PaymentDialog.createPaymentDialog(activity, content,
                             (dialog, input) -> {
                                 dialog.dismiss();
                             });

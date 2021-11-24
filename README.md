@@ -1,18 +1,23 @@
 <p align='center'>
-<img src="./img/tiva.png"/>
+<br/>
+<br/>
+<img src="./img/tiva.png" />
+<br/>
+<br/>
 </p>
+
 
 TiVa
 ---
 
 TiVa is a crypto-powered application inspired by Kiva.org for giving microloans for individuals and businesses in need.
 
-Built for the Kiva 2021 hackathon.
+Built for the Theta 2021 hackathon going after the General and Streaming Video categories.
 
 <b>Note this project is currently for demo purposes and would require additional implementation to be production ready.</b>
 
 ## Introduction
-The TiVa Android TV application brings the innovative charitable lending of Kiva into your living room and allows instant lending right from your remote or mobile device. 
+The TiVa Android TV application brings into your living room and allows instant lending right from your remote or mobile device. 
 
 ## Running the app
 * Download and open <a href="https://developer.android.com/studio" target="_blank">Android Studio</a>.
@@ -38,26 +43,11 @@ The TiVa app is configured to encourage loan cycling, instead of returning loan 
 **Lender Engagement**
 The TiVa app uses various techniques designed to provide engaging borrower video browsing and viewing experiences with the goal of persuading viewers to lend to borrowers. Categorized carousels help lenders browse through borrowers that they may have strong connections to, recommendations can be made based on urgent borrower needs or based on a lender's past browsing or lending history. 
 
-<!--
-Key value props:
-1. Discover charities and businesses to give support from your TV.
-2. Crypto offers minimum friction payments to individuals and businesses anywhere in the world.
-3. Create a loan queue that automatically circulates your funds to other businesses once repaid.
-
 ### Screenshots
-<h3>Netflix style app for discovering emerging charitable causes and businesses from your TV</h3>
-<img src='./img/search.png' width=800/>
 
-### Useful links
--->
-
-### Screenshots
-<h3>Netflix style app for discovering emerging charitable causes and businesses from your TV</h3>
-<img src="./img/home.png" width=800/>
-<h3>Discover businesses and watch informational content right from the app</h3>
-<img src="./img/org.png" width=800/>
-<img src="./img/video.png" width=800/>
-<h3>Initiate a loan from your mobile device using a compatible wallet.</h3>
-<img src="./img/home.png" width=800/>
+<h3>TiVa uses the Theta delivery sdk to stream borrower / entrepreneur videos in a TV app format</h3>
+<img src="./img/theta_delivery_sdk.png" width=800/>
+<h3>The Theta API is called to convert any mp4 into a streamable file</h3>
+<img src="./img/theta_api.png" width=800/>
 
 

@@ -14,28 +14,18 @@ import com.amazon.android.model.content.Content;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.IOException;
 import java.util.Locale;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
-
-import static com.amazon.android.contentbrowser.ContentBrowser.PRICE_MAP;
-import static com.amazon.android.contentbrowser.app.ContentBrowserApplication.GSON;
 import static com.amazon.android.contentbrowser.payments.PayIdHelper.HTTP_CLIENT;
-import static com.amazon.android.contentbrowser.payments.PayIdHelper.PAYTV_SERVER;
-import static com.amazon.android.contentbrowser.payments.PayIdHelper.createPayIdUrl;
-import static com.amazon.android.contentbrowser.payments.PayIdHelper.getAddresses;
 
 public class PaymentDialog {
 
+    private static final String MASTER_THETA_ADDRESS = "0x9F1E8c0DdCFB1c97368F409b338Add1BF3030Ea6";
+    private static final int QR_SIZE = 200;
 
-    public static void createPayIdInputDialog(Activity context,
-                                              Content content,
-                                              DialogInterface.OnClickListener onClickListener)
+    public static void createPaymentDialog(Activity context,
+                                           Content content,
+                                           DialogInterface.OnClickListener onClickListener)
             throws Exception {
 
         ViewGroup subView = (ViewGroup) context.getLayoutInflater().// inflater view
@@ -45,15 +35,16 @@ public class PaymentDialog {
         purchaseText.setText(String.format(Locale.US, "Lending to: %s", content.getTitle()));
 
         TextView conversionText = subView.findViewById(R.id.conversion_text);
-        final String text = "Scan the QR code below to initiate the loan from a compatible mobile wallet. Your sender/wallet address will automatically be recorded as the lending address.";
+        final String text = "Scan the QR code below to initiate the loan from a compatible mobile wallet. Your sender/wallet address will automatically be recorded as the lending address.\n\nPay in either Theta or TFuel";
         conversionText.setText(text);
 
-        String finalBtcAddress = "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy";
-        Picasso picasso = new Picasso.Builder(context).downloader(new OkHttp3Downloader(HTTP_CLIENT)).build();
+        final Picasso picasso = new Picasso.Builder(context).downloader(new OkHttp3Downloader(HTTP_CLIENT)).build();
         picasso.setLoggingEnabled(true);
+
         new Handler(Looper.getMainLooper()).post(() -> {
-            String url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + finalBtcAddress;
-            ImageView v = subView.findViewById(R.id.btcImage);
+            String sizeString = QR_SIZE + "%" + QR_SIZE;
+            final String url = String.format(Locale.US, "https://api.qrserver.com/v1/create-qr-code/?size=%s&data=%s", sizeString, MASTER_THETA_ADDRESS);
+            ImageView v = subView.findViewById(R.id.paymentImage);
             picasso.load(url).into(v);
 
             new AlertDialog.Builder(context)

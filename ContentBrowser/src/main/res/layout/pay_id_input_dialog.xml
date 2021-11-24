@@ -40,13 +40,13 @@
             android:padding="40dp">
 
             <TextView
-                android:id="@+id/btcText"
+                android:id="@+id/currencyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BTC" />
+                android:text="Theta/TFuel" />
 
             <ImageView
-                android:id="@+id/btcImage"
+                android:id="@+id/paymentImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
