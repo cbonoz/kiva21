@@ -81,7 +81,6 @@ import com.amazon.mediaplayer.playback.text.Cue;
 import com.amazon.utils.DateAndTimeHelper;
 import com.google.android.exoplayer.text.CaptionStyleCompat;
 import com.google.android.exoplayer.text.SubtitleLayout;
-import com.google.android.exoplayer.util.Util;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -713,12 +712,11 @@ public class PlaybackActivity extends Activity implements
     }
 
     private void showProgress() {
-
-        mProgressBar.setVisibility(View.VISIBLE);
+        // Readd if buffering indicator
+//        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     private void hideProgress() {
-
         mProgressBar.setVisibility(View.INVISIBLE);
     }
 
@@ -1712,7 +1710,7 @@ public class PlaybackActivity extends Activity implements
                         mTotalSegments, currentSegment);
                 break;
             case BUFFERING:
-                showProgress();
+                 showProgress();
                 if (mMediaSessionController != null) {
                     mMediaSessionController.updatePlaybackState(PlaybackState.STATE_BUFFERING,
                             getCurrentPosition());
